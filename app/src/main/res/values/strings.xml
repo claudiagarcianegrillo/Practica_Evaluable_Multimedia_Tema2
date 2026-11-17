@@ -1,0 +1,31 @@
+<!-- Este fichero almacena textos de la aplicación, como puede ser el nombre de esta,
+los campos del usuario y la contraseña, el botón de validar, los mensajes de error y
+los títulos y descripciones de las tarjetas -->
+<resources>
+    <!-- Textos login -->
+    <string name="app_name">PracticaEvaluableTema2Claudia</string>
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="boton_validar">Validar</string>
+    <string name="mensaje_error">Usuario o contraseña incorrectos</string>
+
+    <!-- Textos principal -->
+    <string name="saludo">¡Hola, %s! Bienvenido/a de nuevo</string>
+    <string name="bienvenida_defecto">¡Bienvenido/a a LumiSkin!</string>
+    <string name="titulo_pagina">LumiSkin</string>
+    <string name="titulo_card1">Centro de Control de LumiSkin</string>
+    <string name="descripcion_card1">Tu app multiusos ideal</string>
+    <string name="btn_chistes">Ir a Chistes</string>
+    <string name="btn_configuracion">Ir a Configuración</string>
+    <string name="btn_dados">Ir a Dados</string>
+    <string name="boton_desconectar">Salir de la App</string>
+
+    <!-- Textos dados -->
+    <string name="numero_dados">Introduce un número entre 3 y 18</string>
+    <string name="resultado_inicial">0</string>
+    <string name="btn_volver_principal">Volver a Principal</string>
+    <string name="error_rango_dados">Introduce un número entre 3 y 18</string>
+    <string name="toast_acierto">A C I E R T O y salió el número = %d</string>
+    <string name="toast_fallo">No has acertado y salió el número = %d</string>
+
+</resources>
