@@ -156,10 +156,10 @@ class DadosActivity : AppCompatActivity() {
         //Si la suma coincide con el número que eligió el usuario, el programa ha acertado
         if (sum == numeroUsuario) {
             //Mostramos un diálogo de acierto
-            Toast.makeText(this, getString(R.string.toast_acierto), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.toast_acierto, numeroUsuario), Toast.LENGTH_LONG).show()
         } else {
             //Si no coincide vamos a avisar con un Toast
-            Toast.makeText(this, getString(R.string.toast_fallo), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_fallo, sum), Toast.LENGTH_SHORT).show()
         }
 
         //La partida ha terminado y volvemos a activar el cubilete y el campo de texto

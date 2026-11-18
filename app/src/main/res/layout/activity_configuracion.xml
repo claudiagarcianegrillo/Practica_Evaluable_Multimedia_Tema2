@@ -1,10 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCE4EC"
+    android:padding="20dp"
     tools:context=".ConfiguracionActivity">
+
+    <!-- ScrollView que sirve para que el formulario se pueda desplazar si la pantalla fuera pequeña -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="24dp">
+
+            <!-- Título del Formulario -->
+            <TextView
+                android:id="@+id/txt_titulo_config"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="68dp"
+                android:text="@string/config_titulo"
+                android:textColor="#880E4F"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Para el nombre -->
+            <EditText
+                android:id="@+id/edt_nombre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/hint_nombre"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textColorHint="#777777"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_titulo_config" />
+
+            <!-- Para la marca favorita -->
+            <EditText
+                android:id="@+id/edt_marca"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/hint_marca"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHint="#777777"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_nombre" />
+
+            <!-- Título para el tipo de piel -->
+            <TextView
+                android:id="@+id/lbl_piel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/titulo_piel"
+                android:textColor="#880E4F"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_marca" />
+
+            <!-- RadioGroup para el tipo de piel -->
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_piel">
+
+                <RadioButton
+                    android:id="@+id/radio_seca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/piel_seca"
+                    android:textColor="#333333" />
+
+                <RadioButton
+                    android:id="@+id/radio_mixta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/piel_mixta"
+                    android:textColor="#333333" />
+
+                <RadioButton
+                    android:id="@+id/radio_grasa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/piel_grasa"
+                    android:textColor="#333333" />
+            </RadioGroup>
+
+            <!-- Título para los productos -->
+            <TextView
+                android:id="@+id/lbl_productos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/titulo_productos"
+                android:textColor="#880E4F"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <!-- CheckBoxs de la base, el labial y las sombras de ojos -->
+            <CheckBox
+                android:id="@+id/chk_base"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/prod_base"
+                android:textColor="#333333"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_productos" />
+
+            <CheckBox
+                android:id="@+id/chk_labial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/prod_labial"
+                android:textColor="#333333"
+                app:layout_constraintStart_toEndOf="@+id/chk_base"
+                app:layout_constraintTop_toTopOf="@+id/chk_base" />
+
+            <CheckBox
+                android:id="@+id/chk_sombras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/prod_sombras"
+                android:textColor="#333333"
+                app:layout_constraintStart_toEndOf="@+id/chk_labial"
+                app:layout_constraintTop_toTopOf="@+id/chk_base" />
+
+            <!-- Botón de fecha pequeño y alineado a la izquierda (bias=0) -->
+            <Button
+                android:id="@+id/btn_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:backgroundTint="#880E4F"
+                android:text="@string/boton_fecha"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toStartOf="@+id/txt_fecha"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chk_base" />
+
+            <!-- TextView Fecha Seleccionada al lado del botón -->
+            <TextView
+                android:id="@+id/txt_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha_sin"
+                android:textColor="#555555"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_fecha"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_fecha"
+                app:layout_constraintTop_toTopOf="@+id/btn_fecha" />
+
+            <!-- Etiqueta para el spinner -->
+            <TextView
+                android:id="@+id/lbl_tiempo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tiempo_tiradas"
+                android:textColor="#880E4F"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_tiempo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_fecha" />
+
+            <!-- Spinner para el tiempo -->
+            <Spinner
+                android:id="@+id/spinner_tiempo"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/lbl_tiempo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/lbl_tiempo" />
+
+            <!-- Switch para activar la voz en los chistes -->
+            <Switch
+                android:id="@+id/sw_voz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:checked="true"
+                android:text="@string/voz_activada"
+                android:textColor="#880E4F"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_tiempo"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <!-- ProgressBar de guardado -->
+            <ProgressBar
+                android:id="@+id/progress_guardar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sw_voz" />
+
+            <!-- Botón Guardar -->
+            <Button
+                android:id="@+id/btn_guardar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#880E4F"
+                android:text="@string/boton_guardar"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btn_volver"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress_guardar" />
+
+            <!-- Botón Volver -->
+            <Button
+                android:id="@+id/btn_volver"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#880E4F"
+                android:text="@string/btn_volver_principal"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_guardar"
+                app:layout_constraintTop_toBottomOf="@+id/progress_guardar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

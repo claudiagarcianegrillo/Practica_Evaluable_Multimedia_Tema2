@@ -2,14 +2,14 @@
 los campos del usuario y la contraseña, el botón de validar, los mensajes de error y
 los títulos y descripciones de las tarjetas -->
 <resources>
-    <!-- Textos login -->
+    <!-- Para el activity del login -->
     <string name="app_name">PracticaEvaluableTema2Claudia</string>
     <string name="usuario">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="boton_validar">Validar</string>
     <string name="mensaje_error">Usuario o contraseña incorrectos</string>
 
-    <!-- Textos principal -->
+    <!-- Para el activity del principal -->
     <string name="saludo">¡Hola, %s! Bienvenido/a de nuevo</string>
     <string name="bienvenida_defecto">¡Bienvenido/a a LumiSkin!</string>
     <string name="titulo_pagina">LumiSkin</string>
@@ -20,12 +20,36 @@ los títulos y descripciones de las tarjetas -->
     <string name="btn_dados">Ir a Dados</string>
     <string name="boton_desconectar">Salir de la App</string>
 
-    <!-- Textos dados -->
+    <!-- Para el activity de los dados -->
     <string name="numero_dados">Introduce un número entre 3 y 18</string>
     <string name="resultado_inicial">0</string>
     <string name="btn_volver_principal">Volver a Principal</string>
     <string name="error_rango_dados">Introduce un número entre 3 y 18</string>
     <string name="toast_acierto">A C I E R T O y salió el número = %d</string>
     <string name="toast_fallo">No has acertado y salió el número = %d</string>
+
+    <!-- Para el activity de los chistes -->
+    <string name="escuchar_chiste">Escuchar chistes</string>
+    <string name="error_voz">No se pudo iniciar la voz</string>
+
+    <!-- Para el activity de la configuración -->
+    <string name="config_titulo">Formulario de maquillaje</string>
+    <string name="hint_nombre">Tu nombre</string>
+    <string name="hint_marca">Marca de maquillaje favorita</string>
+    <string name="titulo_piel">Tipo de piel</string>
+    <string name="piel_seca">Seca</string>
+    <string name="piel_mixta">Mixta</string>
+    <string name="piel_grasa">Grasa</string>
+    <string name="titulo_productos">Productos que usas a diario</string>
+    <string name="prod_base">Base</string>
+    <string name="prod_labial">Labial</string>
+    <string name="prod_sombras">Sombras</string>
+    <string name="boton_fecha">Fecha Nacimiento</string>
+    <string name="fecha_sin">Sin fecha</string>
+    <string name="tiempo_tiradas">Tiempo entre tiradas de dados</string>
+    <string name="voz_activada">Voz activada en los chistes</string>
+    <string name="boton_guardar">Guardar</string>
+    <string name="error_nombre">Escribe tu nombre</string>
+    <string name="config_guardada">Datos guardados</string>
 
 </resources>
