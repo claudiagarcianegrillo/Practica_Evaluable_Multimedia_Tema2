@@ -97,16 +97,20 @@ class DadosActivity : AppCompatActivity() {
 
     //Programa las 5 tiradas y el resultado final usando una corrutina
     private fun scheduleRun() {
+        //Abrimos las mismas preferencias donde ConfiguracionActivity también guardó el tiempo
+        //'getInt("tiempo", 1)' devuelve los segundo que hemos elegido en el spinner de la configuración
+        //y si no se ha elegido ninguno devuelve 1 segundo siempre
+        val segundos = getSharedPreferences("config", MODE_PRIVATE).getInt("tiempo", 1)
         //Launch lo que hace es iniciar una corrutina dentro del scope
         scope.launch {
             //Ejecutamos el bloque 5 veces
             repeat(5) {
-                //Esperamos 1 segundo sin bloquear el hilo
-                delay(1000)
+                //Esperamos los segundos elegidos por la persona multiplicados por 1000 para pasarlos a milisegundos
+                delay(segundos * 1000L)
                 //Lanzamos los tres dados
                 lanzarDados()
             }
-            //Esperamos 2 segundos más ya que la última tirada fue a los 5 segundos y el resultado sale a los 7
+            //Esperamos 2 segundos más después de la última tirada antes de enseñar el resultado
             delay(2000)
             //Mostramos el resultado y comprobamos si ha acertado
             mostrarResultado()
@@ -116,7 +120,7 @@ class DadosActivity : AppCompatActivity() {
     //Lanzamos los tres dados con tres números aleatorios
     private fun lanzarDados() {
         //Creamos 3 posiciones y rellenamos cada una con un número aleatorio
-        //nextInt(1, 7) da un valor de 1 a 6 (el límite superior, el 7, no entra)
+        //nextInt(1, 6) da un valor de 1 a 6 ambos incluidos
         val numDados = Array(3) { (1..6).random() }
 
         //Creamos un Array con los 3 ImageView de los dados en el mismo orden que el numDados

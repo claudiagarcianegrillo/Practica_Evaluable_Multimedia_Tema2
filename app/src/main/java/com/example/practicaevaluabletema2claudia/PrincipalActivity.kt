@@ -7,8 +7,11 @@ import com.example.practicaevaluabletema2claudia.databinding.ActivityPrincipalBi
 
 class PrincipalActivity : AppCompatActivity() {
 
-    // Declaramos la variable para el View Binding
+    //Declaramos la variable para el View Binding
     private lateinit var binding: ActivityPrincipalBinding
+
+    //
+    private var usuario: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,16 +20,8 @@ class PrincipalActivity : AppCompatActivity() {
         binding = ActivityPrincipalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Recuperamos los datos enviados desde el login a través del intent
-        val usuario = intent.getStringExtra("usuario")
-
-        // Mostramos un mensaje de bienvenida personalizado con el usuario recibido
-        if (!usuario.isNullOrEmpty()) {
-            binding.textoDatos.text = getString(R.string.saludo, usuario)
-        } else {
-            // Mensaje por defecto si no llega usuario que nunca pasará porque no te deja entrar si no esa contraseña y usuario
-            binding.textoDatos.text = getString(R.string.bienvenida_defecto)
-        }
+        //Recuperamos los datos enviados desde el login a través de un intent
+        usuario = intent.getStringExtra("usuario")
 
         //Configuramos los botones de navegación usando binding
         binding.btnChistes.setOnClickListener {
@@ -49,6 +44,27 @@ class PrincipalActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        //Abrimos las preferencias donde el activity ConfiguracionActivity guarda el los datos, en este caso vamos a usar el nombre
+        val prefs = getSharedPreferences("config", MODE_PRIVATE)
+
+        //Leemos el nombre guardado en la configuración
+        val nombre = prefs.getString("nombre", "")
+
+        //Si hay un nombre guardado desde la configuracion ponemos ese
+        if (!nombre.isNullOrEmpty()) {
+            binding.textoDatos.text = getString(R.string.saludo, nombre)
+        } else if (!usuario.isNullOrEmpty()) {
+            //Si no hay nombre pero si hay usuario del login, saludamos con el usuario, es decir , con 'admin'
+            binding.textoDatos.text = getString(R.string.saludo, usuario)
+        } else {
+            //Si no hay ninguno de los dos mostramos un mensaje por defecto
+            binding.textoDatos.text = getString(R.string.bienvenida_defecto)
         }
     }
 }
